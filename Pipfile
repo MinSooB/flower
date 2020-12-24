@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+pillow = "*"
+django-dotenv = "*"
+
+[dev-packages]
+flake8 = "*"
+black = "*"
+awsebcli = "*"
+pipenv-to-requirements = "*"
+psycopg = "2.8.7"
+
+[requires]
+python_version = "3.9"

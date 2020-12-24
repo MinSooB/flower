@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block page_title %}
+    Home
+{% endblock page_title %}
+
+
+{% block content %}
+
+
+    <div class="max-w-full h-75vh bg-center bg-cover" style="background-image: url({{flower.first_photo}})"></div>
+    <div class="container w-20 mx-10 flex flex-col justify-between">
+        <span class="text-3xl mt-10">{{flower.name}}</span>
+        <span class="text-medium mb-10">{{flower.date.date}}</span>
+        <span class="w-20 text-gray-700 font-light mb-10">{{flower.description}}</span>
+    </div>
+
+
+{% endblock content %}
+    

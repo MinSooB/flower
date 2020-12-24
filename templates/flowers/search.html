@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Search
+{% endblock page_title %}
+
+{% block search-bar %}    
+{% endblock search-bar %}
+    
+
+{% block content %}
+    <div class="mx-10">
+        <form class="w-1/4" method="get" action="{% url "flower:search" %}">
+        <input value = "{{flower}}" id="flower" name="flower" placeholder="Search By Flower Name" />
+        <button class="mb-10 space-y-0 bg-green-700 text-white text-center rounded-sm py-5 w-full text-lg">Search</button>
+        </form>
+        <div class="border-t border-gray-700 flex flex-col pb-10">
+        <span class="text-lg my-10"> Result </span>
+    
+    {% for result in results %}
+        
+        <span class="text-sm text-gray-600"> <a href = "{% url "flower:detail" pk=result.pk%}"> {{result}} - {{result.description}} </a></span>
+
+    {% endfor %}
+        </div>
+    </div>
+        
+{% endblock content %} 

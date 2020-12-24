@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Home
+{% endblock page_title %}
+    
+{% block content %}
+    <div class="flex flex-wrap container mx-auto">
+    {% for flower in flowers %}
+        <a class = "w-1/4" href = {% url "flower:detail" flower.pk %}>
+            <div class="w-full mb-5 px-2">
+                <div class="w-full h-64 bg-cover bg-center rounded-lg " style="background-image: url({{flower.first_photo}})"></div>
+            </div>
+            <span class = "text-medium text-gray-700 mb-10 flex w-full justify-center font-bold">    {{flower.name}} </span>
+        </a>
+    {% endfor %}
+    </div>    
+
+    <div class="mx-auto my-5 flex justify-center items-center">
+    
+        
+        {% if page_obj.has_previous %}
+            <a href = "?page={{page_obj.previous_page_number}}"><i class="fas fa-arrow-left fa-lg"></i></a>
+        {% endif %}
+
+        <span class="mx-3 text-medium text-lg">{{page_obj.number}} / {{page_obj.paginator.num_pages}}</span>
+        
+        {% if page_obj.has_next %}
+            <a href = "?page={{page_obj.next_page_number}}"><i class="fas fa-arrow-right fa-lg"></i></a>
+        {% endif %}
+
+    </div>
+
+{% endblock content %}
+
+    

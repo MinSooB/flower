@@ -1,0 +1,13 @@
+<ul class="flex h-full items-center">
+    
+
+    {% if user.is_authenticated %}
+        <li class="nav_link"><a href = "{% url "users:logout" %}">Logout</a></li>
+        <li class="nav_link"><a href="{%url "flower:create" %}">Create Flower</a></li>
+    {% else %}
+        <li class="nav_link"><a href = "{% url "users:login" %}">Login</a></li>
+        <li class = "nav_link"><a href = "{% url "users:signup" %}">Sign up</a></li>
+    {% endif %}
+        
+    
+</ul>
