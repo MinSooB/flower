@@ -159,15 +159,17 @@ EMAIL_HOST_USER = os.environ.get("MAILGUN_USERNAME")
 EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
 EMAIL_FROM = "flower@sandbox2ba559537f904296851b8b1b0c8d7d24.mailgun.org"
 
-if not DEBUG:
 
-    DEFAULT_FILE_STORAGE = "config.custom_storages.UploadStorage"
-    STATICFILES_STORAGE = "config.custom_storages.StaticStorage"
-    AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-    AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-    AWS_STORAGE_BUCKET_NAME = "msb-flower"
-    AWS_AUTO_CREATE_BUCKET = True
-    AWS_DEFAULT_ACL = "public-read"
+
+DEFAULT_FILE_STORAGE = "config.custom_storages.UploadStorage"
+STATICFILES_STORAGE = "config.custom_storages.StaticStorage"
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = "msb-flower"
+AWS_AUTO_CREATE_BUCKET = True
+AWS_DEFAULT_ACL = "public-read"
+
+if not DEBUG:
 
     AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.ap-northeast-2.amazonaws.com"
     STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
