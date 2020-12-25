@@ -9,6 +9,8 @@ pillow = "*"
 django-dotenv = "*"
 gunicorn = "*"
 sentry-sdk = "==0.13.2"
+django-storages = "*"
+boto3 = "*"
 
 [dev-packages]
 flake8 = "*"
