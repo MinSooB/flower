@@ -8,6 +8,7 @@ django = "*"
 pillow = "*"
 django-dotenv = "*"
 gunicorn = "*"
+sentry-sdk = "==0.13.2"
 
 [dev-packages]
 flake8 = "*"
