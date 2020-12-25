@@ -16,7 +16,6 @@ psycopg2 = "*"
 [dev-packages]
 flake8 = "*"
 black = "*"
-awsebcli = "*"
 pipenv-to-requirements = "*"
 
 [requires]
