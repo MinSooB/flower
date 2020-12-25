@@ -1,5 +1,6 @@
 from django.db import models
 from users import models as user_models
+import datetime
 
 
 class Flower(models.Model):
@@ -7,7 +8,7 @@ class Flower(models.Model):
     updated = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=100)
     description = models.TextField()
-    date = models.DateTimeField()
+    date = models.DateTimeField(default=datetime.now)
     photographer = models.ForeignKey(user_models.User, on_delete=models.CASCADE)
     photo = models.ImageField(default = '', upload_to="flower_photos")
     
