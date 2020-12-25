@@ -151,18 +151,10 @@ MEDIA_ROOT = BASE_DIR / 'uploads'
 MEDIA_URL = "/media/"
 
 
-# Email Configuration
-
-EMAIL_HOST = "smtp.mailgun.org"
-EMAIL_PORT = "587"
-EMAIL_HOST_USER = os.environ.get("MAILGUN_USERNAME")
-EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
-EMAIL_FROM = "flower@sandbox2ba559537f904296851b8b1b0c8d7d24.mailgun.org"
 
 
-
-DEFAULT_FILE_STORAGE = "config.custom_storages.UploadStorage"
-STATICFILES_STORAGE = "config.custom_storages.StaticStorage"
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = "msb-flower"
