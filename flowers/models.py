@@ -8,7 +8,7 @@ class Flower(models.Model):
     updated = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=100)
     description = models.TextField()
-    date = models.DateTimeField(default=datetime.now)
+    date = models.DateTimeField(null=True, blank=True)
     photographer = models.ForeignKey(user_models.User, on_delete=models.CASCADE)
     photo = models.ImageField(default = '', upload_to="flower_photos")
     
