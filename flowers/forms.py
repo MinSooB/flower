@@ -28,5 +28,6 @@ class EditFlowerForm(forms.ModelForm):
             "description",
         )
         widgets = {"name": forms.TextInput(attrs={"placeholder": "꽃 이름"}),
+        "date": forms.DateTimeInput(attrs={"placeholder": "날짜. (예시: 2020-12-26)"}),
         "description": forms.TextInput(attrs={"placeholder": "사진 설명"}),
         }
