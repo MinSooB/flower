@@ -7,7 +7,7 @@
 {% block content %}
     <div class="flex flex-wrap container mx-auto">
     {% for flower in flowers %}
-        <a class = "w-1/4" href = {% url "flower:detail" flower.pk %}>
+        <a class = "w-1/2" href = {% url "flower:detail" flower.pk %}>
             <div class="w-full mb-5 px-2">
                 <div class="w-full h-64 bg-cover bg-center rounded-lg " style="background-image: url({{flower.first_photo}})"></div>
             </div>
