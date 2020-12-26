@@ -25,6 +25,7 @@ class EditFlowerForm(forms.ModelForm):
         model = models.Flower
         fields = (
             "name",
+            "date",
             "description",
         )
         widgets = {"name": forms.TextInput(attrs={"placeholder": "꽃 이름"}),
