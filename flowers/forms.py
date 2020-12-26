@@ -19,3 +19,14 @@ class CreateFlowerForm(forms.ModelForm):
     def save(self, *args, **kwargs):
        flower = super().save(commit=False)
        return flower
+    
+class EditFlowerForm(forms.ModelForm):
+    class Meta:
+        model = models.Flower
+        fields = (
+            "name",
+            "description",
+        )
+        widgets = {"name": forms.TextInput(attrs={"placeholder": "꽃 이름"}),
+        "description": forms.TextInput(attrs={"placeholder": "사진 설명"}),
+        }

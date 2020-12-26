@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView, FormView
+from django.views.generic import ListView, DetailView, FormView, UpdateView
 from django.shortcuts import render, reverse, redirect
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -32,3 +32,8 @@ class CreateFlowerView(SuccessMessageMixin, LoginRequiredMixin, FormView):
         flower.photographer = flower.user
         flower.save()
         return redirect(reverse("flower:detail", kwargs={"pk": flower.pk}))
+    
+class EditFlowerView(UpdateView):
+    model = models.Flower
+    form_class = forms.EditFlowerForm
+    template_name = "flowers/flower_edit.html"

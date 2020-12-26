@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Update Flower
+{% endblock page_title %}
+
+{% block search-bar %}
+{% endblock search-bar %}
+
+{% block content %}
+
+    <div class="container mx-auto my-10 flex flex-col items-center border p-6 border-gray-400">
+
+        <form method="POST" class="w-full" enctype="multipart/form-data">
+            {% csrf_token %}
+        
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <span class="text-red-700 font-medium text-sm">{{error}}</span> 
+                {% endfor %}
+            {% endif %}
+        
+            {% for field in form %}
+           
+            <div class="input w-full">
+                {{field.label}}
+                {{field}}
+                
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <span class="text-red-700 font-medium text-sm">{{error}}</span> 
+                    {% endfor %}
+                {% endif %}
+            </div> 
+           
+            {% endfor %}
+        
+            <button class="mt-5 mb-5 text-white text-center rounded-sm py-5 w-1/3 text-lg bg-red-500">수정하기</button>
+        </form> 
+
+    </div>
+{% endblock content %} 

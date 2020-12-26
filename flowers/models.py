@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from users import models as user_models
 
 class Flower(models.Model):
@@ -12,6 +13,9 @@ class Flower(models.Model):
     
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("flower:detail", kwargs={"pk": self.pk})
 
     def first_photo(self):
         try:
