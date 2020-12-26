@@ -11,8 +11,9 @@ class CreateFlowerForm(forms.ModelForm):
             "description",
         )
         
-        widgets = {"name": forms.TextInput(attrs={"placeholder": "꽃의 이름"}),
-        "description": forms.TextInput(attrs={"placeholder": "사진에 대한 설명"}),
+        widgets = {"name": forms.TextInput(attrs={"placeholder": "꽃 이름"}),
+        "date": forms.DateTimeInput(attrs={"placeholder": "날짜. (예시: 2020-12-26)"}),
+        "description": forms.TextInput(attrs={"placeholder": "사진 설명"}),
         }
     
     def save(self, *args, **kwargs):
