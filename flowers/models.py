@@ -1,7 +1,5 @@
 from django.db import models
 from users import models as user_models
-import datetime
-
 
 class Flower(models.Model):
     created = models.DateTimeField(auto_now_add=True)

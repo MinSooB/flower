@@ -7,13 +7,11 @@ class CreateFlowerForm(forms.ModelForm):
         fields = (
             "photo",
             "name",
-            "date",
             "description",
         )
         
-        widgets = {"name": forms.TextInput(attrs={"placeholder": "Name of the Flower"}),
-        "date": forms.DateTimeInput(attrs={"placeholder": "0000-00-00 (Date of the Picture Taken)"}),
-        "description": forms.TextInput(attrs={"placeholder": "Description of the Picture"}),
+        widgets = {"name": forms.TextInput(attrs={"placeholder": "꽃의 이름"}),
+        "description": forms.TextInput(attrs={"placeholder": "사진에 대한 설명"}),
         }
     
     def save(self, *args, **kwargs):
