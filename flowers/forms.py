@@ -7,6 +7,7 @@ class CreateFlowerForm(forms.ModelForm):
         fields = (
             "photo",
             "name",
+            "date",
             "description",
         )
         
