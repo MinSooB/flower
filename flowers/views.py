@@ -4,6 +4,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from . import models, forms
 
 class HomeView(ListView):
@@ -37,3 +39,15 @@ class EditFlowerView(UpdateView):
     model = models.Flower
     form_class = forms.EditFlowerForm
     template_name = "flowers/flower_edit.html"
+
+@login_required
+def delete_photo(request, pk):
+    user = request.user
+    
+    flower = models.Flower.objects.get(pk=pk)
+    if flower.photographer.pk != user.pk:
+        messages.error(request, "삭제할 수 없음!")
+    else:
+        models.Flower.objects.filter(pk=pk).delete()
+        messages.success(request, "삭제 완료!")
+    return redirect(reverse("flower:home"))
