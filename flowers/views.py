@@ -27,6 +27,7 @@ class CreateFlowerView(SuccessMessageMixin, LoginRequiredMixin, FormView):
     login_url = "/users/login/"
     form_class = forms.CreateFlowerForm
     template_name = "flowers/flower_create.html"
+    SuccessMessageMixin = "저장 완료"
 
     def form_valid(self, form):
         flower = form.save()
@@ -35,10 +36,11 @@ class CreateFlowerView(SuccessMessageMixin, LoginRequiredMixin, FormView):
         flower.save()
         return redirect(reverse("flower:detail", kwargs={"pk": flower.pk}))
     
-class EditFlowerView(UpdateView):
+class EditFlowerView(SuccessMessageMixin, UpdateView):
     model = models.Flower
     form_class = forms.EditFlowerForm
     template_name = "flowers/flower_edit.html"
+    SuccessMessageMixin = "수정 완료!"
 
 @login_required
 def delete_photo(request, pk):
