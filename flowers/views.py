@@ -53,3 +53,24 @@ def delete_photo(request, pk):
         models.Flower.objects.filter(pk=pk).delete()
         messages.success(request, "삭제 완료!")
     return redirect(reverse("flower:home"))
+
+class FlowerView(ListView):
+    queryset = models.Flower.objects.all()
+    queryset = queryset.filter(classification = "Flower")
+    paginate_by = 12
+    ordering = "-created"
+    context_object_name = "flowers"
+
+class FamilyView(ListView):
+    queryset = models.Flower.objects.all()
+    queryset = queryset.filter(classification = "Family")
+    paginate_by = 12
+    ordering = "-created"
+    context_object_name = "flowers"
+
+class OthersView(ListView):
+    queryset = models.Flower.objects.all()
+    queryset = queryset.filter(classification = "Others")
+    paginate_by = 12
+    ordering = "-created"
+    context_object_name = "flowers"

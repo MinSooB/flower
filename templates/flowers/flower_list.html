@@ -5,6 +5,11 @@
 {% endblock page_title %}
     
 {% block content %}
+    <div class="flex mb-10">
+        <a href="{% url 'flower:c_flower' %}" class="bg-red-400 text-white flex justify-center items-center w-16 h-8 rounded-md ml-5 mr-1">Flower</a>
+        <a href="{% url 'flower:c_family' %}" class="bg-red-400 text-white flex justify-center items-center w-16 h-8 rounded-md mr-1">Family</a>
+        <a href="{% url 'flower:c_others' %}" class="bg-red-400 text-white flex justify-center items-center w-16 h-8 rounded-md mr-1">Others</a>
+    </div>
     <div class="flex flex-wrap container mx-auto">
     {% for flower in flowers %}
         <a class = "w-1/2" href = {% url "flower:detail" flower.pk %}>

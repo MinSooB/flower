@@ -11,6 +11,12 @@ class Flower(models.Model):
     photographer = models.ForeignKey(user_models.User, on_delete=models.CASCADE)
     photo = models.ImageField(default = '', upload_to="flower_photos")
     
+    classification_choices = (("Flower", "Flower"), ("Family", "Family"), ("Others", "Others"))
+
+    classification = models.CharField(
+        choices=classification_choices, max_length=10, null=True, blank=True
+    )
+    
     def __str__(self):
         return self.name
 
